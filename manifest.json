@@ -1,0 +1,59 @@
+{
+  "builds": [
+    {
+      "name": "jenkins",
+      "builder_type": "amazon-ebs",
+      "build_time": 1691969131,
+      "files": null,
+      "artifact_id": "us-west-2:ami-0c040fe3f012173f7",
+      "packer_run_uuid": "fdb179ef-eb43-d743-e0ec-c5f24a98ea79",
+      "custom_data": null
+    },
+    {
+      "name": "jenkins",
+      "builder_type": "amazon-ebs",
+      "build_time": 1691970438,
+      "files": null,
+      "artifact_id": "us-west-2:ami-02ca17edd90f01272",
+      "packer_run_uuid": "b444cf9b-88e4-09e9-f802-c6b4d8d0b5cf",
+      "custom_data": null
+    },
+    {
+      "name": "jenkins",
+      "builder_type": "amazon-ebs",
+      "build_time": 1691977399,
+      "files": null,
+      "artifact_id": "us-west-2:ami-07b8c2a3a2cf82925",
+      "packer_run_uuid": "0d2d8a22-5957-5668-8d0f-07b1d5fda33c",
+      "custom_data": null
+    },
+    {
+      "name": "jenkins",
+      "builder_type": "amazon-ebs",
+      "build_time": 1691977811,
+      "files": null,
+      "artifact_id": "us-west-2:ami-025ef639f9afb76a7",
+      "packer_run_uuid": "713bff95-1e3e-1fa6-4439-0e4e5efcfb97",
+      "custom_data": null
+    },
+    {
+      "name": "jenkins",
+      "builder_type": "amazon-ebs",
+      "build_time": 1691978605,
+      "files": null,
+      "artifact_id": "us-west-2:ami-09d0e407f14b08e84",
+      "packer_run_uuid": "98103bc4-1629-9316-8248-ece883cb34d0",
+      "custom_data": null
+    },
+    {
+      "name": "jenkins",
+      "builder_type": "amazon-ebs",
+      "build_time": 1691979600,
+      "files": null,
+      "artifact_id": "us-west-2:ami-0ed19c710bbd642a2",
+      "packer_run_uuid": "0822fb47-daa5-e9e8-b218-c3728fa26591",
+      "custom_data": null
+    }
+  ],
+  "last_run_uuid": "0822fb47-daa5-e9e8-b218-c3728fa26591"
+}

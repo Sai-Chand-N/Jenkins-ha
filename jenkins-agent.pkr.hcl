@@ -3,13 +3,13 @@ variable "ami_id" {
   default = "ami-03f65b8614a860c29"
 }
 
-variable "efs_mount_point" {
-  type    = string
-  default = ""
+variable "public_key_path" {
+    type = string
+    default = "/devops-tools/jenkins/id_rsa.pub"
 }
 
 locals {
-  app_name = "jenkins-controller"
+  app_name = "jenkins-agent"
 }
 
 source "amazon-ebs" "jenkins" {
@@ -19,6 +19,7 @@ source "amazon-ebs" "jenkins" {
   availability_zone = "us-west-2a"
   source_ami    = "${var.ami_id}"
   ssh_username  = "ubuntu"
+  iam_instance_profile = "jenkins_ec2_profile"
   tags = {
     Env  = "dev"
     Name = "${local.app_name}"
@@ -29,8 +30,8 @@ build {
   sources = ["source.amazon-ebs.jenkins"]
 
   provisioner "ansible" {
-  playbook_file = "ansible/jenkins-controller.yaml"
-  extra_arguments = [ "--extra-vars", "ami-id=${var.ami_id} efs_mount_point=${var.efs_mount_point}", "--scp-extra-args", "'-O'", "--ssh-extra-args", "-o IdentitiesOnly=yes -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedAlgorithms=+ssh-rsa" ]
+  playbook_file = "ansible/jenkins-agent.yaml"
+  extra_arguments = [ "--extra-vars", "public_key_path=${var.public_key_path}",  "--scp-extra-args", "'-O'", "--ssh-extra-args", "-o IdentitiesOnly=yes -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedAlgorithms=+ssh-rsa" ]
   } 
   
   post-processor "manifest" {
@@ -38,5 +39,3 @@ build {
     strip_path = true
   }
 }
-
-
